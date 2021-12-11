@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4164faa878db3de438fa6cf3b7d642e9, type: 3}
+  m_Name: M1911
+  m_EditorClassIdentifier: 
+  gunName: M1911
+  desc: "1911\uB144 \uBBF8\uAD6D\uC81C \uAD8C\uCD1D\uC785\uB2C8\uB2E4."
+  shootDelay: 0.25
+  recoil: 1
+  reloadTime: 2.3
+  magazin: 7
+  isCanPart: 010100010001
+  bullet: {fileID: 4368631125995906377, guid: 45687081d70f1474093180eea273d5ef, type: 3}
+  fireMode: 0
+  shootAudio: {fileID: 8300000, guid: eb74f59895fc9e94e9ce83c2d9504850, type: 3}
+  reloadAudio: {fileID: 8300000, guid: 3101c406726f72a4c9506bed0037568f, type: 3}
+  useAudio: {fileID: 8300000, guid: b4607f846b130e4438f7c5a5db31a6cb, type: 3}
