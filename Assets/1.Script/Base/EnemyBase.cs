@@ -5,12 +5,14 @@ public class EnemyBase : MonoBehaviour
 {
     protected float hp, damage, speed;
     protected SpriteRenderer sprite;
+    protected Rigidbody2D rb;
     [SerializeField] protected EnemyInfo enemyInfo;
     private void Start()
     {
         hp = enemyInfo.hp;
         damage = enemyInfo.damage;
         speed = enemyInfo.speed;
+        rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
     }
     public void Damaged(float damage)
