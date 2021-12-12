@@ -7,7 +7,10 @@ public class EnemyBase : MonoBehaviour
     protected SpriteRenderer sprite;
     protected Rigidbody2D rb;
     [SerializeField] protected EnemyInfo enemyInfo;
-    private void Start()
+    virtual protected void Start()
+    {
+    }
+    virtual protected void SetUp()
     {
         hp = enemyInfo.hp;
         damage = enemyInfo.damage;
@@ -15,11 +18,11 @@ public class EnemyBase : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
     }
-    public void Damaged(float damage)
+    virtual protected void Damaged(float damage)
     {
         hp -= damage;
     }
-    private void OnTriggerEnter2D(Collider2D collision)
+    virtual protected void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.transform.CompareTag("Bullet"))
         {
@@ -32,7 +35,14 @@ public class EnemyBase : MonoBehaviour
             StartCoroutine(Damaged());
         }
     }
-    private IEnumerator Damaged()
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.transform.CompareTag("Object"))
+        {
+
+        }
+    }
+    virtual protected IEnumerator Damaged()
     {
         speed = enemyInfo.hitSpeed;
         sprite.color = Color.red;
@@ -40,7 +50,11 @@ public class EnemyBase : MonoBehaviour
         sprite.color = Color.white;
         speed = enemyInfo.speed;
     }
-    private void Dead()
+    virtual protected void Attack()
+    {
+
+    }
+    virtual protected void Dead()
     {
         Destroy(gameObject);
     }

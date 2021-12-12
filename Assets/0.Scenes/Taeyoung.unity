@@ -617,7 +617,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hand: {fileID: 823294328}
   firePos: {fileID: 795778763}
-  currentGun: {fileID: 11400000, guid: 3ce5be33d7e213143bfc06ec59ff15aa, type: 2}
+  currentGun: {fileID: 11400000, guid: b38be76b81733ad4fa6715a589acde21, type: 2}
   ammoText: {fileID: 2054011223}
   gunNameText: {fileID: 201920539}
   shootAudio: {fileID: 515754080}
