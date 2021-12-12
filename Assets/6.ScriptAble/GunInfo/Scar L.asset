@@ -1,0 +1,26 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4164faa878db3de438fa6cf3b7d642e9, type: 3}
+  m_Name: Scar L
+  m_EditorClassIdentifier: 
+  gunName: 
+  desc: 
+  shootDelay: 0
+  recoil: 0
+  reloadTime: 0
+  magazin: 0
+  isCanPart: 
+  bullet: {fileID: 0}
+  fireMode: 0
+  shootAudio: {fileID: 0}
+  reloadAudio: {fileID: 0}
+  useAudio: {fileID: 0}

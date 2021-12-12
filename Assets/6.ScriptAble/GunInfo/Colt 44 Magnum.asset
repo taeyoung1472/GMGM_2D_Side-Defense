@@ -1,0 +1,27 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4164faa878db3de438fa6cf3b7d642e9, type: 3}
+  m_Name: Colt 44 Magnum
+  m_EditorClassIdentifier: 
+  gunName: Colt 44 Magnum
+  desc: "Colt\uC0AC\uC758 44\uAD6C\uACBD \uB9AC\uBCFC\uBC84\uC774\uB2E4 \uB290\uB9AC\uC9C0\uB9CC
+    \uAC15\uB825\uD558\uB2E4"
+  shootDelay: 1
+  recoil: 10
+  reloadTime: 3
+  magazin: 6
+  isCanPart: 
+  bullet: {fileID: 0}
+  fireMode: 0
+  shootAudio: {fileID: 0}
+  reloadAudio: {fileID: 0}
+  useAudio: {fileID: 0}
