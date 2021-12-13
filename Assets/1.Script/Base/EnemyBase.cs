@@ -9,6 +9,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] protected EnemyInfo enemyInfo;
     virtual protected void Start()
     {
+        SetUp();
     }
     virtual protected void SetUp()
     {
@@ -35,12 +36,24 @@ public class EnemyBase : MonoBehaviour
             StartCoroutine(Damaged());
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Object"))
         {
-
+            Attack(collision.gameObject.GetComponent<Object_>());
         }
+        if (collision.transform.CompareTag("Player"))
+        {
+            Attack(collision.gameObject.GetComponent<Player>());
+        }
+    }
+    virtual protected void Attack(Object_ _obj)
+    {
+        _obj.GetDamage(damage);
+    }
+    virtual protected void Attack(Player player)
+    {
+        player.GetDamage(damage);
     }
     virtual protected IEnumerator Damaged()
     {
@@ -49,10 +62,6 @@ public class EnemyBase : MonoBehaviour
         yield return new WaitForSeconds(enemyInfo.shockTime);
         sprite.color = Color.white;
         speed = enemyInfo.speed;
-    }
-    virtual protected void Attack()
-    {
-
     }
     virtual protected void Dead()
     {

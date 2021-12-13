@@ -18,6 +18,7 @@ MonoBehaviour:
   recoil: 1
   reloadTime: 3
   magazin: 30
+  firePos: {x: 1.3, y: 0.15, z: 0}
   isCanPart: 
   bullet: {fileID: 4368631125995906377, guid: 45687081d70f1474093180eea273d5ef, type: 3}
   fireMode: 1

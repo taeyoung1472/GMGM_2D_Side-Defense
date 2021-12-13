@@ -5,19 +5,19 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     bool isGround;
-    float jumpForce, curSpeed;
+    float curSpeed;
     Rigidbody2D rb;
-    SpriteRenderer renderer;
+    SpriteRenderer sprite;
     [SerializeField] private Vector2 moveDir;
     [SerializeField] private Transform hand;
-    [SerializeField] private float speed, runSpeed;
-    void Start()
+    [SerializeField] private float speed, runSpeed, jumpForce, hp;
+    public void Start()
     {
         curSpeed = speed;
         rb = GetComponent<Rigidbody2D>();
-        renderer = GetComponent<SpriteRenderer>();
+        sprite = GetComponent<SpriteRenderer>();
     }
-    void Update()
+    public void Update()
     {
         Rotation();
         Move();
@@ -38,7 +38,7 @@ public class Player : MonoBehaviour
             curSpeed = speed;
         }
     }
-    private void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Ground"))
         {
@@ -46,12 +46,24 @@ public class Player : MonoBehaviour
             isGround = true;
         }
     }
+    public void GetDamage(float damage)
+    {
+        hp -= damage;
+        if(hp <= 0)
+        {
+            Dead();
+        }
+    }
+    public void Dead()
+    {
+
+    }
     public void Jump()
     {
         if (isGround)
         {
             isGround = false;
-            moveDir.y = 10;
+            moveDir.y = jumpForce;
         }
     }
     public void Move()
@@ -74,11 +86,11 @@ public class Player : MonoBehaviour
         hand.eulerAngles = new Vector3(0,0,angle);
         if(angle < 90 && angle > -90)
         {
-            renderer.flipX = false;
+            sprite.flipX = false;
         }
         else
         {
-            renderer.flipX = true;
+            sprite.flipX = true;
         }
     }
 }

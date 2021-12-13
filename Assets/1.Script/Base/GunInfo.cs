@@ -6,6 +6,7 @@ public class GunInfo : ScriptableObject
     public string desc;
     public float shootDelay, recoil, reloadTime;
     public int magazin;
+    public Vector3 firePos;
     public bool[] isCanPart;
     public GameObject bullet;
     public FireMode fireMode;

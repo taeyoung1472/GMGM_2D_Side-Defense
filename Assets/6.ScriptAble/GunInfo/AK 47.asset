@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4164faa878db3de438fa6cf3b7d642e9, type: 3}
-  m_Name: Scar L
+  m_Name: AK 47
   m_EditorClassIdentifier: 
   gunName: 
   desc: 
@@ -18,6 +18,7 @@ MonoBehaviour:
   recoil: 0
   reloadTime: 0
   magazin: 0
+  firePos: {x: 0, y: 0, z: 0}
   isCanPart: 
   bullet: {fileID: 0}
   fireMode: 0
