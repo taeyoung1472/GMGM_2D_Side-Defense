@@ -8,6 +8,7 @@ TagManager:
   - Bullet
   - Object
   - Enemy
+  - Supplies
   layers:
   - Default
   - TransparentFX
