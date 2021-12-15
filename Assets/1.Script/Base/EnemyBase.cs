@@ -41,10 +41,12 @@ public class EnemyBase : MonoBehaviour
         if (collision.transform.CompareTag("Object"))
         {
             Attack(collision.gameObject.GetComponent<Object_>());
+            StartCoroutine(Attack());
         }
         if (collision.transform.CompareTag("Player"))
         {
             Attack(collision.gameObject.GetComponent<Player>());
+            StartCoroutine(Attack());
         }
     }
     virtual protected void Attack(Object_ _obj)
@@ -54,6 +56,12 @@ public class EnemyBase : MonoBehaviour
     virtual protected void Attack(Player player)
     {
         player.GetDamage(damage);
+    }
+    virtual protected IEnumerator Attack()
+    {
+        speed = -enemyInfo.hitSpeed;
+        yield return new WaitForSeconds(1f);
+        speed = enemyInfo.speed;
     }
     virtual protected IEnumerator Damaged()
     {
