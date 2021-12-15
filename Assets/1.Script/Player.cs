@@ -19,7 +19,7 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
-        Rotation();
+       Rotation();
         Move();
         CheckInput();
     }

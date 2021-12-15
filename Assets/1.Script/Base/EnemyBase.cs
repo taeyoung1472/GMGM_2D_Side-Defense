@@ -9,6 +9,7 @@ public class EnemyBase : MonoBehaviour
     [SerializeField] protected EnemyInfo enemyInfo;
     virtual protected void Start()
     {
+        SetUp();
     }
     virtual protected void SetUp()
     {
@@ -37,10 +38,10 @@ public class EnemyBase : MonoBehaviour
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.transform.CompareTag("Object"))
+        /*if (collision.transform.CompareTag("Object"))
         {
 
-        }
+        }*/
     }
     virtual protected IEnumerator Damaged()
     {
