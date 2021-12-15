@@ -1,5 +1,5 @@
 ﻿{
-    "gunpowder": 96,
-    "wood": 96,
-    "iron": 96
+    "gunpowder": 71,
+    "wood": 86,
+    "iron": 68
 }

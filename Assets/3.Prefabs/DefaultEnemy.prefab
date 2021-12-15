@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 5971634144906785025}
   - component: {fileID: 5971634144906785054}
   - component: {fileID: 5971634144906785055}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: DefaultEnemy
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -97,7 +97,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16d575d4c3ba3da43b89b700032d31e1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sprite: {fileID: 0}
   enemyInfo: {fileID: 11400000, guid: 6316e1187d758604c8563afc9a603f03, type: 2}
 --- !u!50 &5971634144906785054
 Rigidbody2D:

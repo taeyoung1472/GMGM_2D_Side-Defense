@@ -19,4 +19,6 @@ MonoBehaviour:
   speed: 10
   hitSpeed: 1
   shockTime: 0.1
+  backSpeed: 10
+  backTime: 1
   enemyMode: 0
