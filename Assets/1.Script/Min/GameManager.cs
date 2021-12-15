@@ -3,9 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
-public class GameManager : MonoSingleton<GameManager>
+public class GameManager1234 : MonoBehaviour
 {
-    private string SAVE_PATH = "";
+    /*private string SAVE_PATH = "";
     private string SAVE_FILENAME = "/SaveFile.txt";
     
     [SerializeField]
@@ -27,7 +27,7 @@ public class GameManager : MonoSingleton<GameManager>
         {
             Directory.CreateDirectory(SAVE_PATH);
         }
-        InvokeRepeating("SaveToJson", 1f, 3f);
+        //InvokeRepeating("SaveToJson", 1f, 3f);
         LoadFromJson();
     }
 
@@ -52,7 +52,7 @@ public class GameManager : MonoSingleton<GameManager>
     {
         SaveToJson();
     }
-
+    */
 }
 
 

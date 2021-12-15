@@ -5,15 +5,14 @@ using UnityEngine;
 public class Player : MonoBehaviour
 {
     bool isGround;
-    float jumpForce, curSpeed;
+    float jumpForce;
     Rigidbody2D rb;
     SpriteRenderer renderer;
     [SerializeField] private Vector2 moveDir;
     [SerializeField] private Transform hand;
-    [SerializeField] private float speed, runSpeed;
+    [SerializeField] private float speed;
     void Start()
     {
-        curSpeed = speed;
         rb = GetComponent<Rigidbody2D>();
         renderer = GetComponent<SpriteRenderer>();
     }
@@ -29,20 +28,12 @@ public class Player : MonoBehaviour
         {
             Jump();
         }
-        if (Input.GetKeyDown(KeyCode.LeftShift))
-        {
-            curSpeed = runSpeed;
-        }
-        if (Input.GetKeyUp(KeyCode.LeftShift))
-        {
-            curSpeed = speed;
-        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Ground"))
         {
-            moveDir.y = 1;
+            moveDir.y = 0;
             isGround = true;
         }
     }
@@ -56,14 +47,14 @@ public class Player : MonoBehaviour
     }
     public void Move()
     {
-        moveDir.x = Input.GetAxis("Horizontal") * curSpeed;
+        moveDir.x = Input.GetAxis("Horizontal") * speed;
         if (!isGround)
         {
             moveDir.y -= Time.deltaTime * rb.gravityScale;
         }
         else
         {
-            moveDir.y = 1;
+            moveDir.y = 0;
         }
         rb.velocity = moveDir;
     }

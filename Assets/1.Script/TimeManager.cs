@@ -5,10 +5,9 @@ using UnityEngine.UI;
 public class TimeManager : MonoBehaviour
 {
     private int day, hour, min;
-    bool isDay, isRain;
-    [SerializeField] private int timeScale, dayTime, nightTime, rainPercent;
+    [SerializeField] bool isDay;
+    [SerializeField] private int timeScale, dayTime, nightTime;
     [SerializeField] private Text timeText;
-    [SerializeField] private WeatherManager weatherManager;
     private void Start()
     {
         timeText.text = string.Format("Day : {0} Hour : {1} Min : {2}", day, hour, min);
@@ -24,19 +23,6 @@ public class TimeManager : MonoBehaviour
             {
                 min -= 60;
                 hour++;
-                if (Random.Range(0,100) < rainPercent)
-                {
-                    if (isRain)
-                    {
-                        isRain = false;
-                        weatherManager.StopRain();
-                    }
-                    else
-                    {
-                        isRain = true;
-                        weatherManager.StartRain();
-                    }
-                }
                 if(hour < nightTime && hour >= dayTime)
                 {
                     isDay = true;
