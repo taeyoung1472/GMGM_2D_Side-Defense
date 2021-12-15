@@ -12,7 +12,6 @@ public class TimeManager : MonoBehaviour
     bool isDay, isRain;
     [SerializeField] private int timeScale, dayTime, nightTime, rainPercent;
     [SerializeField] private Text timeText;
-    //[SerializeField] private WeatherManager weatherManager;
     private void Start()
     {
         intenSityValue.intensity = 1f;
@@ -46,12 +45,10 @@ public class TimeManager : MonoBehaviour
                     if (isRain)
                     {
                         isRain = false;
-                        //weatherManager.StopRain();
                     }
                     else
                     {
                         isRain = true;
-                        //weatherManager.StartRain();
                     }
                 }
                 if(hour < nightTime && hour >= dayTime)
@@ -68,7 +65,7 @@ public class TimeManager : MonoBehaviour
                     day++;
                 }
             }
-            timeText.text = string.Format("Day : {0} Hour : {1} Min : {2}  Value : {3}", day, hour, min,value);
+            timeText.text = string.Format("Day : {0} Hour : {1} Min : {2}", day, hour, min);
         }
     }
     void TurnDelight()
@@ -81,86 +78,6 @@ public class TimeManager : MonoBehaviour
         {
             intenSityValue.intensity += 0.0208333333333333f;
         }
-            //if(value=0)
-        {
-
-        }
-        //switch (hour)
-        //{
-         
-        //    case 1:
-        //        intenSityValue.intensity = 0.74f;//Mathf.Lerp(0, 10, Time.deltatime);//0.8f;
-        //        break;
-        //    case 2:
-        //        intenSityValue.intensity = 0.74f;
-        //        break;
-        //    case 3:
-        //        intenSityValue.intensity = 0.68f;
-        //        break;
-        //    case 4:
-        //        intenSityValue.intensity = 0.62f;
-        //        break;
-        //    case 5:
-        //        intenSityValue.intensity = 0.56f;
-        //        break;
-        //    case 6:
-        //        intenSityValue.intensity = 0.50f;
-        //        break;
-        //    case 7:
-        //        intenSityValue.intensity = 0.44f;
-        //        break;
-        //    case 8:
-        //        intenSityValue.intensity = 0.38f;
-        //        break;
-        //    case 9:
-        //        intenSityValue.intensity = 0.32f;
-        //        break;
-        //    case 10:
-        //        intenSityValue.intensity = 0.26f;
-        //        break;
-        //    case 11:
-        //        intenSityValue.intensity = 0.2f;
-        //        break;
-        //    case 12:
-        //        intenSityValue.intensity = 0.14f;
-        //        break;
-        //    case 13:
-        //        intenSityValue.intensity = 0.2f;
-        //        break;
-        //    case 14:
-        //        intenSityValue.intensity = 0.26f;
-        //        break;
-        //    case 15:
-        //        intenSityValue.intensity = 0.32f;
-        //        break;
-        //    case 16:
-        //        intenSityValue.intensity = 0.38f;
-        //        break;
-        //    case 17:
-        //        intenSityValue.intensity = 0.44f;
-        //        break;
-        //    case 18:
-        //        intenSityValue.intensity = 0.50f;
-        //        break;
-        //    case 19:
-        //        intenSityValue.intensity = 0.56f;
-        //        break;
-        //    case 20:
-        //        intenSityValue.intensity = 0.62f;
-        //        break;
-        //    case 21:
-        //        intenSityValue.intensity = 0.68f;
-        //        break;
-        //    case 22:
-        //        intenSityValue.intensity = 0.74f;
-        //        break;
-        //    case 23:
-        //        intenSityValue.intensity = 0.8f;
-        //        break;
-        //    case 0:
-        //        intenSityValue.intensity = 0.8f;
-        //        break;
-
-        //}
+        
     }
 }
