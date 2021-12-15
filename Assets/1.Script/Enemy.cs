@@ -10,6 +10,6 @@ public class Enemy : EnemyBase
     }
     void Move()
     {
-        rb.velocity = new Vector2(-speed,rb.velocity.y);
+        transform.Translate(Vector2.left * speed * Time.deltaTime);
     }
 }

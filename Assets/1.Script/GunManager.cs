@@ -17,7 +17,6 @@ public class GunManager : MonoBehaviour
     }
     void SetUp()
     {
-        firePos.localPosition = currentGun.firePos;
         currentBullet = currentGun.magazin;
         gunNameText.text = string.Format("{0}", currentGun.gunName);
         ammoText.text = string.Format("{0} / {1}", currentBullet, currentGun.magazin);
