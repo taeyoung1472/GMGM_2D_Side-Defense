@@ -16,7 +16,7 @@ MonoBehaviour:
   desc: "\uD3C9\uBC24\uD788 \uB2E4\uAC00\uC624\uB294 \uC801 \uC785\uB2C8\uB2E4."
   hp: 100
   damage: 50
-  speed: 5
+  speed: 10
   hitSpeed: 1
   shockTime: 0.1
   enemyMode: 0

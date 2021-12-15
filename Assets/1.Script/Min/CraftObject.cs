@@ -13,18 +13,18 @@ public class CraftObject : MonoBehaviour
     }
     public void Craft()
     {
-        if
+        /*if 
         (
-        GameManager.Instance.CurrentUser.wood >= craftInfo.namu &&
-        GameManager.Instance.CurrentUser.gunpowder >= craftInfo.hwayack &&
-        GameManager.Instance.CurrentUser.iron >= craftInfo.chul
+        //GameManager.Instance.CurrentUser.wood >= craftInfo.namu &&
+        //GameManager.Instance.CurrentUser.gunpowder >= craftInfo.hwayack &&
+        //GameManager.Instance.CurrentUser.iron >= craftInfo.chul
         
         )
         {
-            GameManager.Instance.CurrentUser.wood -= craftInfo.namu;
-            GameManager.Instance.CurrentUser.gunpowder -= craftInfo.hwayack;
-            GameManager.Instance.CurrentUser.iron -= craftInfo.chul;
-            Debug.Log("재료를 만들었어요");
+            //GameManager.Instance.CurrentUser.wood -= craftInfo.namu;
+            //GameManager.Instance.CurrentUser.gunpowder -= craftInfo.hwayack;
+            //GameManager.Instance.CurrentUser.iron -= craftInfo.chul;
+            //Debug.Log("재료를 만들었어요");
            // Inventory.instance.AddItem(itemInfo);
         }
         else
@@ -32,6 +32,6 @@ public class CraftObject : MonoBehaviour
             Debug.Log("재료가부족합니다");
             return;//못만들때 실행문
         }
-        //GameManager.Inventory.AddItem(ItemInfo);// 대충 이런 함수
+        //GameManager.Inventory.AddItem(ItemInfo);// 대충 이런 함수*/
     }
 }
