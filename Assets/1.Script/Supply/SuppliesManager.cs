@@ -17,11 +17,12 @@ public class SuppliesManager : MonoBehaviour
     {
         if (collision.gameObject.tag == "Ground")
             isGround = true;
+        else if (collision.gameObject.tag == "Player")
+        {
+            Debug.Log("º¸±Þ");
+            Destroy(gameObject);
+
+        }
     }
 
-    public void ClickSupplies()
-    {
-        Debug.Log("º¸±Þ È¹µæ");
-        Destroy(gameObject);
-    }
 }

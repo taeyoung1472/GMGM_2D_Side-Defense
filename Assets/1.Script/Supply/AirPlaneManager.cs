@@ -9,11 +9,11 @@ public class AirPlaneManager : MonoBehaviour
     private bool isDropSupply = false; // true = 보급 공급 , false = X
     private bool isSupplyEnd = false; // true = 보급 공급 , false = X
 
-    [SerializeField] private float speed = 2f;
+    [SerializeField] private float speed = 10f;
 
     [SerializeField] GameObject suppliesPrefab; //보급품
 
-    public void SetIsSupply(bool isSupply)
+    public void SetIsSupply(bool isSupply) //이 함수를 참으로 넣으면 출발함
     {
         this.isSupply = isSupply;
     }

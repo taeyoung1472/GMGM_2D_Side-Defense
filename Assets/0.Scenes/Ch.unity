@@ -20343,7 +20343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5bdb091a3ef39c94fa9853072c507225, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 2
+  speed: 10
   suppliesPrefab: {fileID: 1590775835361122045, guid: 0cc80bb4c050f204d8f23dc5aea5ce7b, type: 3}
 --- !u!212 &1324287255
 SpriteRenderer:
