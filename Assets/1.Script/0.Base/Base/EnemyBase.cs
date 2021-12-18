@@ -26,6 +26,10 @@ public class EnemyBase : MonoBehaviour
     public void Damaged(float damage)
     {
         hp -= damage;
+        if (hp <= 0)
+        {
+            Dead();
+        }
     }
     public void OnTriggerEnter2D(Collider2D collision)
     {
