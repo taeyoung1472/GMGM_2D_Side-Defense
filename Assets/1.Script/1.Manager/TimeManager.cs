@@ -5,37 +5,33 @@ using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
-    
-    public Light intenSityValue;
+    [SerializeField]
+   private Light intenSityValue;
     private int day, hour, min;
-    private float value;
+    private float value,lightValue;
     bool isDay, isRain;
     [SerializeField] private int timeScale, dayTime, nightTime, rainPercent;
     [SerializeField] private Text timeText;
-    private void Start()
+     void Start()
     {
-        intenSityValue.intensity = 1f;
+        intenSityValue.intensity= 0.4f;
+        lightValue = 0.4f;
         timeText.text = string.Format("Day : {0} Hour : {1} Min : {2}", day, hour, min);
-        StartCoroutine(Time());
+        StartCoroutine(TimeSystem());
     }
-  void Update()
+    void Update()
     {
-       
+        
+        intenSityValue.intensity = Mathf.Lerp(intenSityValue.intensity, lightValue, 0.01f);
+        //intenSityValue.intensity = Mathf.Lerp(intenSityValue.intensity, lightValue, Time.deltaTime / timeScale);
     }
-    IEnumerator Time()
+    IEnumerator TimeSystem()    
     {
         while (true)
         {
-            
             TurnDelight();
-            yield return new WaitForSeconds(1f);
-            value += timeScale;
-            min += timeScale;
-          if(value>=1440)
-            {
-                value=0;
-            }
-               
+            yield return new WaitForSeconds(1f);   
+            min += timeScale;              
             if (min >= 60)
             {
                 min -= 60;
@@ -68,16 +64,29 @@ public class TimeManager : MonoBehaviour
             timeText.text = string.Format("Day : {0} Hour : {1} Min : {2}", day, hour, min);
         }
     }
+    //void TurnDelight()
+    //{
+    //    if (hour >= 12 && hour <= 24)//아침7시~오후19시 밝아짐
+    //    {
+    //        lightValue += 1f / ((60f / timeScale) * 12);
+    //        //intenSityValue.intensity += 1f / ((60f / timeScale) * 12);
+    //    }
+    //    else if (hour >= 0 && hour < 12)//오후19시~아침 7시 어두워짐
+    //    {
+    //        lightValue -= 1f / ((60f / timeScale) * 12);
+    //        //intenSityValue.intensity -= 1f / ((60f / timeScale) * 12);
+    //    }
+    //}
     void TurnDelight()
     {
-        if(value<720 && 0 <= value)
+        if(hour>=5&&hour<17)//오전5시~오후4시 밝아짐
         {
-            intenSityValue.intensity -= 0.0208333333333333f;
+            lightValue += 1f / ((60f / timeScale) * 12);
+
         }
-        else if(value>=720)
+       else if(hour<5||hour>=17)//오후5시~오전4시 어두워짐
         {
-            intenSityValue.intensity += 0.0208333333333333f;
-        }
-        
+            lightValue -= 1f / ((60f / timeScale) * 12);
+        }   
     }
 }
