@@ -5,6 +5,7 @@ public class ItemInfo : ScriptableObject
     public string name, stackLimit;
     public Sprite itemSprite;
     public ItemType itemType;
+    public int stackAbleCnt;
     public enum ItemType
     {
         useAble,

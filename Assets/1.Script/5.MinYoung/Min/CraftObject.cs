@@ -6,6 +6,12 @@ public class CraftObject : MonoBehaviour
 {
     public CraftInfo craftInfo;
     public ItemInfo itemInfo;
+    InventoryUI iu;
+    
+    private void Awake()
+    {
+        iu = FindObjectOfType<InventoryUI>();
+    }
     public void SetInfo(CraftInfo info , ItemInfo item)
     {
         craftInfo = info;
@@ -24,8 +30,8 @@ public class CraftObject : MonoBehaviour
             GameManager.Instance.CurrentUser.wood -= craftInfo.namu;
             GameManager.Instance.CurrentUser.gunpowder -= craftInfo.hwayack;
             GameManager.Instance.CurrentUser.iron -= craftInfo.chul;
-            Debug.Log("재료를 만들었어요");
-            //GameManager.Inventory.AddItem(ItemInfo);// 대충 이런 함수
+            Debug.Log(itemInfo + "재료를 만들었어요");
+            //Inventory.instance.AddItem(itemInfo);
         }
         else
         {

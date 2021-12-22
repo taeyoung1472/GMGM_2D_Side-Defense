@@ -14,5 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: "\uB77C\uBA74"
   stackLimit: 64
-  itemSprite: {fileID: 21300062, guid: 82a562abac3987a4b8a32a0f2c1de913, type: 3}
+  itemSprite: {fileID: 21300000, guid: f24e6b6b3e8c4f54dbb7b688cb31ac05, type: 3}
   itemType: 1
+  stackAbleCnt: 4

@@ -5,33 +5,20 @@ using UnityEngine.UI;
 
 public class InventoryUI : MonoBehaviour
 {
-    //Inventory inven;
-    public GameObject inventoryPanel;
+
+    [SerializeField] private GameObject inventoryPanelSlot;
+    private List<PanelBase> inventoryPanels = new List<PanelBase>();
+
+    [SerializeField]
+    private GameObject inventoryPanel;
     private bool isActiveInventory = false;
-    public Slot[] slots;
-    public Transform slotHolder;
+    [SerializeField] private Inventory inventory;   
     void Start()
     {
-        //inven = Inventory.instance;
-        slots = slotHolder.GetComponentsInChildren<Slot>();
-    //    inven.onSlotCountChange += SlotChange;
-       // inven.onChangeItem += RewardSlotUI;
+        InstantiatePanel();
         inventoryPanel.SetActive(isActiveInventory);
     }
-    //private void SlotChange(int val)
-    //{
-    //    for (int i = 0; i < slots.Length; i++)
-    //    {
-    //        if (i < inven.SlotCnt)
-    //        {
-    //            slots[i].GetComponent<Button>().interactable = true;
-    //        }
-    //        else
-    //        {
-    //            slots[i].GetComponent<Button>().interactable = false;
-    //        }
-    //    }
-    //}
+    
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.I))
@@ -40,20 +27,19 @@ public class InventoryUI : MonoBehaviour
             inventoryPanel.SetActive(isActiveInventory);
         }
     }
-    public void AddSlot()
+    public void InstantiatePanel()
     {
-        //inven.SlotCnt++;
+        for (int i = 0; i < 16; i++)
+        {
+            GameObject obj = Instantiate(inventoryPanelSlot, inventoryPanelSlot.transform.parent);
+            //inventory.slots[i] = obj.GetComponent<Slot>();
+            PanelBase panel = obj.GetComponent<PanelBase>();
+
+            inventoryPanels.Add(panel);
+            Debug.Log("AS");
+        }
+        inventoryPanelSlot.SetActive(false);
+
     }
-    //void RewardSlotUI()
-    //{
-    //    for (int i = 0; i < slots.Length; i++)
-    //    {
-    //        slots.RemoveSlot();
-    //    }
-    //    for (int i = 0; i < inven.items.Count; i++)
-    //    {
-    //        slots[i].item = inven.items[i];
-    //        slots[i].UpdateSlotUI();
-    //    }
-    //}
+
 }

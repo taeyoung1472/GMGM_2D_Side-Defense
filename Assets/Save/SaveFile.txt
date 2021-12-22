@@ -1,5 +1,5 @@
 ﻿{
-    "gunpowder": 71,
-    "wood": 86,
-    "iron": 68
+    "gunpowder": 233596,
+    "wood": 23432010,
+    "iron": 4233530
 }

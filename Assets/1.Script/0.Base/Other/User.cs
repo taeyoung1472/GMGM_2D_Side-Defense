@@ -6,4 +6,5 @@ public class User
     public int gunpowder;
     public int wood;
     public int iron;
+
 }
