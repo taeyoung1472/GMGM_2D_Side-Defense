@@ -7,6 +7,7 @@ public class Player : MonoBehaviour
     bool isGround;
     Rigidbody2D rb;
     SpriteRenderer sprite;
+    [SerializeField] private GunManager gunManager;
     [SerializeField] private Vector2 moveDir;
     [SerializeField] private Transform hand;
     [SerializeField] private float speed, hp, jumpForce;
@@ -17,7 +18,7 @@ public class Player : MonoBehaviour
     }
     public void Update()
     {
-       Rotation();
+        Rotation();
         Move();
         CheckInput();
     }

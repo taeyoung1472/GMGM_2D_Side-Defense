@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   BulletName: 45ACP
   desc: "45\uAD6C\uACBD\uD0C4 \uC785\uB2C8\uB2E4."
-  speed: 10
+  speed: 50
   damage: 50
   penetrationChance: 3
   penetrationPerDamage: 0.5

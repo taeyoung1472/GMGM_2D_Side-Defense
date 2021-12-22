@@ -5,11 +5,16 @@ using System.IO;
 
 public class GameManager : MonoSingleton<GameManager>
 {
+    bool isPause;
+    public PoolManager PoolManager { get { return poolManager; } set { poolManager = value; } }
+
     private string SAVE_PATH = "";
     private string SAVE_FILENAME = "/SaveFile.txt";
 
     [SerializeField] private User user = new User();
     [SerializeField] private Transform player;
+    [SerializeField] private GameObject pausePanel;
+    [SerializeField] private PoolManager poolManager;
     public User CurrentUser { get { return user;} }
     void Awake()
     {
@@ -20,6 +25,26 @@ public class GameManager : MonoSingleton<GameManager>
         }
         InvokeRepeating("SaveToJson", 1f, 3f);
         LoadFromJson();
+    }
+    public void Pause(bool isTrue)
+    {
+        pausePanel.SetActive(isTrue);
+    }
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            if (!isPause)
+            {
+                Pause(isPause);
+                isPause = true;
+            }
+            else
+            {
+                Pause(isPause);
+                isPause = false;
+            }
+        }
     }
     #region Json 저장 함수
     private void LoadFromJson()

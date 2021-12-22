@@ -20,9 +20,9 @@ TagManager:
   - HideInMinimap
   - ShowInMinimap
   - Enemy
-  - 
+  - Object
   - Player
-  - 
+  - Bullet
   - 
   - 
   - 

@@ -8,21 +8,22 @@ public class TimeManager : MonoBehaviour
     
     public Light intenSityValue;
     private int day, hour, min;
-    private float value;
+    private float value; public float lightValue = 1;
     bool isDay, isRain;
     [SerializeField] private int timeScale, dayTime, nightTime, rainPercent;
     [SerializeField] private Text timeText;
+    [SerializeField] private WeatherManager weatherManager;
     private void Start()
     {
         intenSityValue.intensity = 1f;
         timeText.text = string.Format("Day : {0} Hour : {1} Min : {2}", day, hour, min);
-        StartCoroutine(Time());
+        StartCoroutine(TimeSystem());
     }
-  void Update()
+    void Update()
     {
-       
+        intenSityValue.intensity = Mathf.Lerp(intenSityValue.intensity, lightValue, Time.deltaTime / timeScale);
     }
-    IEnumerator Time()
+    IEnumerator TimeSystem()
     {
         while (true)
         {
@@ -31,7 +32,7 @@ public class TimeManager : MonoBehaviour
             yield return new WaitForSeconds(1f);
             value += timeScale;
             min += timeScale;
-          if(value>=1440)
+            if(value>=1440)
             {
                 value=0;
             }
@@ -44,10 +45,12 @@ public class TimeManager : MonoBehaviour
                 {
                     if (isRain)
                     {
+                        weatherManager.StartRain();
                         isRain = false;
                     }
                     else
                     {
+                        weatherManager.StopRain();
                         isRain = true;
                     }
                 }
@@ -70,14 +73,15 @@ public class TimeManager : MonoBehaviour
     }
     void TurnDelight()
     {
-        if(value<720 && 0 <= value)
+        if (hour >= 12 && hour <= 24)//아침7시~오후19시 밝아짐
         {
-            intenSityValue.intensity -= 0.0208333333333333f;
+            lightValue += 1f / ((60f / timeScale) * 12);
+            //intenSityValue.intensity += 1f / ((60f / timeScale) * 12);
         }
-        else if(value>=720)
+        else if (hour >= 0 && hour < 12)//오후19시~아침 7시 어두워짐
         {
-            intenSityValue.intensity += 0.0208333333333333f;
+            lightValue -= 1f / ((60f / timeScale) * 12);
+            //intenSityValue.intensity -= 1f / ((60f / timeScale) * 12);
         }
-        
     }
 }
