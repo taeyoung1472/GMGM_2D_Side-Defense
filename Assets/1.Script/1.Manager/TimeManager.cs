@@ -5,32 +5,38 @@ using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
-    [SerializeField]
-   private Light intenSityValue;
+    
+    public Light intenSityValue;
     private int day, hour, min;
-    private float value,lightValue;
+    private float value; public float lightValue = 1;
     bool isDay, isRain;
     [SerializeField] private int timeScale, dayTime, nightTime, rainPercent;
     [SerializeField] private Text timeText;
-     void Start()
+    [SerializeField] private WeatherManager weatherManager;
+    private void Start()
     {
-        intenSityValue.intensity = 0.4f;
-        lightValue = 0.4f;
+        intenSityValue.intensity = 1f;
         timeText.text = string.Format("Day : {0} Hour : {1} Min : {2}", day, hour, min);
         StartCoroutine(TimeSystem());
     }
     void Update()
     {
-       
-        Delight();
+        intenSityValue.intensity = Mathf.Lerp(intenSityValue.intensity, lightValue, Time.deltaTime / timeScale);
     }
-    IEnumerator TimeSystem()    
+    IEnumerator TimeSystem()
     {
         while (true)
         {
+            
             TurnDelight();
-            yield return new WaitForSeconds(1f);   
-            min += timeScale;              
+            yield return new WaitForSeconds(1f);
+            value += timeScale;
+            min += timeScale;
+            if(value>=1440)
+            {
+                value=0;
+            }
+               
             if (min >= 60)
             {
                 min -= 60;
@@ -39,10 +45,12 @@ public class TimeManager : MonoBehaviour
                 {
                     if (isRain)
                     {
+                        weatherManager.StartRain();
                         isRain = false;
                     }
                     else
                     {
+                        weatherManager.StopRain();
                         isRain = true;
                     }
                 }
@@ -63,22 +71,17 @@ public class TimeManager : MonoBehaviour
             timeText.text = string.Format("Day : {0} Hour : {1} Min : {2}", day, hour, min);
         }
     }
-   
     void TurnDelight()
     {
-        if(hour>=5&&hour<17)//오전5시~오후4시 밝아짐
+        if (hour >= 12 && hour <= 24)//아침7시~오후19시 밝아짐
         {
             lightValue += 1f / ((60f / timeScale) * 12);
-
+            //intenSityValue.intensity += 1f / ((60f / timeScale) * 12);
         }
-       else if(hour<5||hour>=17)//오후5시~오전4시 어두워짐
+        else if (hour >= 0 && hour < 12)//오후19시~아침 7시 어두워짐
         {
             lightValue -= 1f / ((60f / timeScale) * 12);
-        } 
-        
-    }
-    void Delight()
-    {
-        intenSityValue.intensity = Mathf.Lerp(intenSityValue.intensity, lightValue, Time.deltaTime);
+            //intenSityValue.intensity -= 1f / ((60f / timeScale) * 12);
+        }
     }
 }

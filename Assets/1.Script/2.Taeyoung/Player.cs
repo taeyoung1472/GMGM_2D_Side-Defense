@@ -7,19 +7,33 @@ public class Player : MonoBehaviour
     bool isGround;
     Rigidbody2D rb;
     SpriteRenderer sprite;
+    [SerializeField] private GunManager gunManager;
     [SerializeField] private Vector2 moveDir;
     [SerializeField] private Transform hand;
     [SerializeField] private float speed, hp, jumpForce;
+
+    public float Maxfatique = 10f;
+
+
+    private float currentFatique;
+    bool MoveD = false;
+    bool FaticureQW = true;
+    private void Awake()
+    {
+        currentFatique = Maxfatique;
+    }
     public void Start()
     {
+       
         rb = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
     }
     public void Update()
     {
-       Rotation();
+        Rotation();
         Move();
         CheckInput();
+        PlusFatiqu();
     }
     public void CheckInput()
     {
@@ -27,7 +41,11 @@ public class Player : MonoBehaviour
         {
             Jump();
         }
+
+      
     }
+
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Ground") || collision.transform.CompareTag("Object"))
@@ -44,18 +62,55 @@ public class Player : MonoBehaviour
             moveDir.y = jumpForce;
         }
     }
+
+    public void PlusFatiqu()
+    {
+        if(!MoveD )
+        {
+            currentFatique += 0.35f * Time.deltaTime;
+            SetBarManager.Instance.SetFatiquerBar(currentFatique / Maxfatique);
+        }
+    }
     public void Move()
     {
-        moveDir.x = Input.GetAxis("Horizontal") * speed;
-        if (!isGround)
+        MoveD = (Input.GetAxisRaw("Horizontal") != 0);
+        CheckFaticure();
+        if (MoveD && FaticureQW)
         {
-            moveDir.y -= Time.deltaTime * rb.gravityScale;
+            moveDir.x = Input.GetAxis("Horizontal") * speed;
+            currentFatique -= 0.2f * Time.deltaTime;
+
+            FatiquerBarMinuse();
+
+
+
+            if (!isGround)
+            {
+                moveDir.y -= Time.deltaTime * rb.gravityScale;
+            }
+            else
+            {
+                moveDir.y = 0;
+            }
+            rb.velocity = moveDir;
+        }
+    }
+
+    private void FatiquerBarMinuse()
+    {
+        SetBarManager.Instance.SetFatiquerBar(currentFatique / Maxfatique);
+    }
+
+    void CheckFaticure()
+    {
+        if (currentFatique <= 0)
+        {
+            FaticureQW = false; //기력이 펄스면 움직이지 못함 ㅗㅜㅑ
         }
         else
         {
-            moveDir.y = 0;
+            FaticureQW = true;
         }
-        rb.velocity = moveDir;
     }
     public void GetDamage(float damage)
     {

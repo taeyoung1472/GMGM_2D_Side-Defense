@@ -20,12 +20,12 @@ TagManager:
   - HideInMinimap
   - ShowInMinimap
   - Enemy
-  - 
+  - Object
   - Player
+  - Bullet
   - 
-  - 
-  - 
-  - 
+  - Grenade
+  - Ground
   - 
   - 
   - 

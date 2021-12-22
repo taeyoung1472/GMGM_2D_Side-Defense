@@ -7,8 +7,8 @@ using UnityEngine;
 public abstract class LivingEntity : MonoBehaviour, IDamageable
 {
     [Header("체력")]
-    public int maxHP; //최대피
-    protected int currentHP; // 현재 피
+    public float maxHP; //최대피
+    protected float currentHP; // 현재 피
     [Header("나는 맞는걸 좋아해요")]
     public Color hitColor; // 컬러
     public int hitAniCount = 3;
@@ -23,7 +23,7 @@ public abstract class LivingEntity : MonoBehaviour, IDamageable
         lastDamageTime = Time.time;
         currentHP = maxHP;
     }
-    public virtual void OnDamage(int damage, Vector2 hitPoint, Vector2 normal, float power = 0f, float minuesSpeed = 0f) //맞으면 속도가 느려지게 하려는데 
+    public virtual void OnDamage(float damage, Vector2 normal, float Power = 0f, float minuseSpeed = 0f) //맞으면 속도가 느려지게 하려는데 
     {
         if (lastDamageTime + damageDelay > Time.time) return;
         lastDamageTime = Time.time;

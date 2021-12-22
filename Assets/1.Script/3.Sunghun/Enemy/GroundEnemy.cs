@@ -10,18 +10,26 @@ public class GroundEnemy : EnemyMove
     {
         base.Awake();
     }
+    private Vector3 spriteSize;
 
     private void Start()
     {
         moveDir = transform.right * -1;
+        SpriteRenderer sr = GetComponent<SpriteRenderer>();
+        spriteSize = sr.bounds.size;
     }
+
 
 
     private void Update()
     {
+
+
         if(moveSet)
         {
             rigid.velocity = new Vector2(moveDir.x * currentSpeed * GameManager.TimeScale, rigid.velocity.y);
         }
+
+        
     }
 }
