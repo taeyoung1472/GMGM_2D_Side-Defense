@@ -49,7 +49,7 @@ public class EnemyAI : MonoBehaviour
             if (GameManager.Player != null)
             {
                 CheckState();
-                Debug.Log("眉农 咀记");
+                //Debug.Log("眉农 咀记");
                 Action();
             }
             yield return ws;
