@@ -49,7 +49,7 @@ public class EnemyAI : MonoBehaviour
             if (GameManager.Player != null)
             {
                 CheckState();
-
+                Debug.Log("체크 액션");
                 Action();
             }
             yield return ws;

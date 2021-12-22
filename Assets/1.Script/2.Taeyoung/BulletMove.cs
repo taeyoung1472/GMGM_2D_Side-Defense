@@ -7,11 +7,17 @@ public class BulletMove : MonoBehaviour
     [SerializeField] private BulletInfo bulletInfo;
     [SerializeField] private Vector2 maxDistance;
     int penetrationChance;
+
+    public LayerMask WhoisEnemy;
     float damage;
+    float power;
+    float minuseSpeed;
     public void Start()
     {
         penetrationChance = bulletInfo.penetrationChance;
         damage = bulletInfo.damage;
+        power = bulletInfo.power;
+        minuseSpeed = bulletInfo.minuseSpeed;
     }
     public void Update()
     {
@@ -33,4 +39,28 @@ public class BulletMove : MonoBehaviour
         }
     }
     public float GetDamage() { return damage; }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if ((1 << collision.gameObject.layer & WhoisEnemy) > 0)
+        {
+
+
+            IDamageable hp = collision.gameObject.GetComponent<IDamageable>();
+
+
+            if (hp != null)
+            {
+
+
+                hp.OnDamage(damage, Vector2.right, power, minuseSpeed);
+
+                gameObject.SetActive(false);
+
+            }
+
+        }
+    }
+
+   
 }
