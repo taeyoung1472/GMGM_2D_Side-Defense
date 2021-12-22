@@ -11,5 +11,6 @@ public class SoundObject : PoolingBase
         audio.volume = _audio.volume;
         audio.clip = _clip;
         audio.Play();
+        StartCoroutine(Pool());
     }
 }

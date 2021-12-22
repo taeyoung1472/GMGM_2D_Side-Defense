@@ -7,7 +7,7 @@ public class PoolingBase : MonoBehaviour
     [Header("Pooling ฐüทร")]
     [SerializeField] protected int poolIndex;
     [SerializeField] protected PoolManager poolManager;
-    Coroutine col; 
+     Coroutine col; 
     protected void Start()
     {
         poolManager = GameManager.Instance.PoolManager;
@@ -18,6 +18,5 @@ public class PoolingBase : MonoBehaviour
         yield return new WaitForSeconds(5f);
         gameObject.SetActive(false);
         transform.SetParent(poolManager.Instance(poolIndex));
-        StopCoroutine(col);
     }
 }
