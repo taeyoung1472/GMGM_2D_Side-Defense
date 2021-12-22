@@ -6,9 +6,12 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/0.Scenes/OriginScene(Dont Touch)/Menu.unity
-    guid: 2cda990e2423bbf4892e6590ba056729
+    path: Assets/0.Scenes/Taeyoung/Menu_Taeyoung.unity
+    guid: 9701ec69932c3334aa060f3a60b20f1d
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
+  - enabled: 1
+    path: Assets/0.Scenes/Taeyoung/Main_Taeyoung.unity
+    guid: ad01bb343d87bf1439df9923b197381c
   m_configObjects: {}

@@ -14,14 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   gunName: M16A4
   desc: "\uBBF8\uC81C 3\uC810\uC0AC \uB3CC\uACA9\uC18C\uCD1D\uC774\uB2E4"
-  shootDelay: 0.25
+  shootDelay: 0.08
   recoil: 1
   reloadTime: 3
   magazin: 30
-  firePos: {x: 1.3, y: 0.15, z: 0}
   isCanPart: 
   bullet: {fileID: 4368631125995906377, guid: 45687081d70f1474093180eea273d5ef, type: 3}
-  fireMode: 1
-  shootAudio: {fileID: 0}
-  reloadAudio: {fileID: 0}
-  useAudio: {fileID: 0}
+  fireMode: 2
+  shootAudio: {fileID: 8300000, guid: 538eaef7634b1f24fa159e0abfa60d8b, type: 3}
+  reloadAudio: {fileID: 8300000, guid: 3101c406726f72a4c9506bed0037568f, type: 3}
+  useAudio: {fileID: 8300000, guid: b4607f846b130e4438f7c5a5db31a6cb, type: 3}

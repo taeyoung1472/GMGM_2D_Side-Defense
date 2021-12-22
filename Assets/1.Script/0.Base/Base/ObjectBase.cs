@@ -4,17 +4,38 @@ using UnityEngine;
 
 public class ObjectBase : MonoBehaviour
 {
+    bool isBreak;
+    private SpriteRenderer sprite;
+    private Collider2D collider;
     [SerializeField] protected float hp;
+    protected virtual void Start()
+    {
+        collider = GetComponent<Collider2D>();
+        sprite = GetComponent<SpriteRenderer>();
+    }
     public virtual void GetDamage(float damage)
     {
         hp -= damage;
-        if(hp <= 0)
+        if (hp <= 0)
         {
             Break();
+            isBreak = true;
+            return;
+        }
+        StartCoroutine(Attacked());
+    }
+    protected virtual IEnumerator Attacked()
+    {
+        sprite.color = Color.red;
+        yield return new WaitForSeconds(0.1f);
+        if (!isBreak)
+        {
+            sprite.color = Color.white;
         }
     }
-    public virtual void Break()
+    protected virtual void Break()
     {
-        Destroy(gameObject);
+        sprite.color = Color.gray;
+        collider.enabled = false;
     }
 }
