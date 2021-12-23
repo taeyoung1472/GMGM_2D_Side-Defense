@@ -3226,7 +3226,7 @@ Light:
   m_Type: 1
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 1
+  m_Intensity: 0.4
   m_Range: 10
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
@@ -3284,7 +3284,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 484174604}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -24443,13 +24443,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   intenSityValue: {fileID: 484174605}
-  lightValue: 1
   timeScale: 15
   dayTime: 6
   nightTime: 18
   rainPercent: 75
   timeText: {fileID: 1738897873}
-  weatherManager: {fileID: 1987899368}
 --- !u!4 &1132592101
 Transform:
   m_ObjectHideFlags: 0
