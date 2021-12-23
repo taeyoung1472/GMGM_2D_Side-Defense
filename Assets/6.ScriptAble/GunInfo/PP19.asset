@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4164faa878db3de438fa6cf3b7d642e9, type: 3}
   m_Name: PP19
   m_EditorClassIdentifier: 
-  gunName: 
+  gunName: PP19
   desc: 
-  shootDelay: 0
-  recoil: 0
-  reloadTime: 0
-  magazin: 0
+  shootDelay: 0.12
+  recoil: 0.25
+  reloadTime: 1.8
+  magazin: 64
   isCanPart: 
-  bullet: {fileID: 0}
-  fireMode: 0
-  shootAudio: {fileID: 0}
-  reloadAudio: {fileID: 0}
-  useAudio: {fileID: 0}
+  bullet: {fileID: 4368631125995906377, guid: 45687081d70f1474093180eea273d5ef, type: 3}
+  fireMode: 2
+  shootAudio: {fileID: 8300000, guid: 5f9e70c3f69a7364dbd3dbf1faab7893, type: 3}
+  reloadAudio: {fileID: 8300000, guid: 7b23c9330b4e0744dbf60dc261f81e9b, type: 3}
+  useAudio: {fileID: 8300000, guid: fb037bd05d9733d4ca10b3c5a94cb852, type: 3}
+  gunSprite: {fileID: 21300000, guid: e1baa6ed5ff54f741b6c1c59878e02bf, type: 3}

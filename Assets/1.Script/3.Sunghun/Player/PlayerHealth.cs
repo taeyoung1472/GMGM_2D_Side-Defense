@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : LivingEntity
 {
-
-
-    SpriteRenderer spriteRenderer;
+    /*SpriteRenderer spriteRenderer;
     PlayerAnimation playerAnimation;
 
     public void Awake()
@@ -20,9 +18,9 @@ public class PlayerHealth : LivingEntity
     {
         base.Start();
     }
-    public override void OnDamage(int damage, Vector2 hitPoint, Vector2 normal, float power = 0f, float mineseSpeed = 0f)
+    public override void OnDamage(float damage, Vector2 normal, float Power = 0f, float minuseSpeed = 0f)
     {
-        base.OnDamage(damage, hitPoint, normal, power); //피다는거, 힛애니메이션
+        base.OnDamage(damage,  normal, Power,  minuseSpeed ); //피다는거, 힛애니메이션
 
     }
 
@@ -40,5 +38,5 @@ public class PlayerHealth : LivingEntity
     protected override void OnDie() //피가 0일떄 실행함
     {
         Debug.Log("플레이어 죽음");
-    }
+    }*/
 }

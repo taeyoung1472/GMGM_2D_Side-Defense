@@ -5,7 +5,7 @@ using UnityEngine;
 public class ZombiHealth : LivingEntity
 {
 
-    Rigidbody2D rigid;
+    /*Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     protected override void Start()
     {
@@ -19,12 +19,12 @@ public class ZombiHealth : LivingEntity
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
-    public override void OnDamage(int damage, Vector2 hitPoint, Vector2 normal, float power = 0, float minuesSpeed = 0)
+    public override void OnDamage(float damage, Vector2 normal, float Power = 0f, float minuseSpeed = 0f)
     {
-        base.OnDamage(damage, hitPoint, normal, power, minuesSpeed);
+        base.OnDamage(damage, normal, Power ,  minuseSpeed);
 
         Debug.Log("원데미지 실행");
-        rigid.velocity -=  new Vector2(minuesSpeed,0f) ;
+        rigid.velocity -=  new Vector2(minuseSpeed, 0f) ;
     }
 
     protected override IEnumerator hitAnimation(int hitAniCount, float hitAniDelay)
@@ -40,5 +40,5 @@ public class ZombiHealth : LivingEntity
     protected override void OnDie()
     {
         gameObject.SetActive(false);
-    }
+    }*/
 }

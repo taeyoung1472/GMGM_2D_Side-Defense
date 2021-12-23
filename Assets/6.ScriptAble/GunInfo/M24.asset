@@ -12,15 +12,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4164faa878db3de438fa6cf3b7d642e9, type: 3}
   m_Name: M24
   m_EditorClassIdentifier: 
-  gunName: 
+  gunName: M24
   desc: 
-  shootDelay: 0
-  recoil: 0
-  reloadTime: 0
-  magazin: 0
+  shootDelay: 2
+  recoil: 5
+  reloadTime: 2
+  magazin: 5
   isCanPart: 
-  bullet: {fileID: 0}
+  bullet: {fileID: 4368631125995906377, guid: 45687081d70f1474093180eea273d5ef, type: 3}
   fireMode: 0
-  shootAudio: {fileID: 0}
-  reloadAudio: {fileID: 0}
+  shootAudio: {fileID: 8300000, guid: 939bdd2aeea541449a4c40d88514ad6b, type: 3}
+  reloadAudio: {fileID: 8300000, guid: 38c83a1ecffdfbc4baaaa813734fd77d, type: 3}
   useAudio: {fileID: 0}
+  gunSprite: {fileID: 21300000, guid: e3b6f607499382c4d9f72f2a04d2712b, type: 3}
