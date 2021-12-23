@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BulletMove : PoolingBase
+public class BulletMove : MonoBehaviour
 {
     [SerializeField] private BulletInfo bulletInfo;
     [SerializeField] private Vector2 maxDistance;
@@ -14,7 +14,6 @@ public class BulletMove : PoolingBase
     float minuseSpeed;
     public void Start()
     {
-        SetPool();
         penetrationChance = bulletInfo.penetrationChance;
         damage = bulletInfo.damage;
         power = bulletInfo.power;
@@ -27,6 +26,8 @@ public class BulletMove : PoolingBase
     void Move()
     {
         transform.Translate(Vector2.right * bulletInfo.speed * Time.deltaTime);
+        if (transform.position.x > maxDistance.x || transform.position.x < -maxDistance.x) { Destroy(gameObject); }
+        if (transform.position.y > maxDistance.y || transform.position.y < -maxDistance.y) { Destroy(gameObject); }
     }
     public void Penetration()
     {
@@ -34,7 +35,7 @@ public class BulletMove : PoolingBase
         damage *= bulletInfo.penetrationPerDamage;
         if (penetrationChance <= 0)
         {
-            gameObject.SetActive(false);
+            Destroy(gameObject);
         }
     }
     public float GetDamage() { return damage; }

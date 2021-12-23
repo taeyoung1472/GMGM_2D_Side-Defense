@@ -10,15 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f33ef1e0a2e3d384280dfd81bf488300, type: 3}
-  m_Name: DefaultEnemy
+  m_Name: StrongZombie
   m_EditorClassIdentifier: 
-  enemyName: Default
-  desc: "\uD3C9\uBC24\uD788 \uB2E4\uAC00\uC624\uB294 \uC801 \uC785\uB2C8\uB2E4."
-  hp: 100
-  damage: 50
-  speed: 10
-  hitSpeed: 1
+  enemyName: Strong
+  desc: "\uB370\uBBF8\uC9C0\uAC00 \uC3BC\uC9C0\uB9CC \uB290\uB9B0\uC880\uBE44"
+  hp: 150
+  damage: 120
+  speed: 2
+  hitSpeed: 2
   shockTime: 0.1
-  backSpeed: 10
+  backSpeed: 5
   backTime: 1
   enemyMode: 0

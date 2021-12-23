@@ -16,6 +16,7 @@ public class Player : MonoBehaviour
 
     public float Maxfatique = 10f;
 
+
     private float currentFatique;
     bool MoveD = false;
     bool FaticureQW = true;
@@ -40,6 +41,8 @@ public class Player : MonoBehaviour
             Jump();
         }
     }
+
+
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.transform.CompareTag("Ground") || collision.transform.CompareTag("Object"))
@@ -75,6 +78,9 @@ public class Player : MonoBehaviour
             currentFatique -= 0.2f * Time.deltaTime;
 
             FatiquerBarMinuse();
+
+
+
             if (!isGround)
             {
                 moveDir.y -= Time.deltaTime * rb.gravityScale;
@@ -125,7 +131,7 @@ public class Player : MonoBehaviour
     {
         curHp -= damage;
         hpSlider.SetValue(curHp / maxHp);
-        if(curHp <= 0)
+        if (curHp <= 0)
         {
             Destroy(gameObject);
         }
@@ -134,8 +140,8 @@ public class Player : MonoBehaviour
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         float angle = Mathf.Atan2(mousePos.y - hand.position.y, mousePos.x - hand.position.x) * Mathf.Rad2Deg;
-        hand.eulerAngles = new Vector3(0,0,angle);
-        if(angle < 90 && angle > -90)
+        hand.eulerAngles = new Vector3(0, 0, angle);
+        if (angle < 90 && angle > -90)
         {
             sprite.flipX = false;
         }

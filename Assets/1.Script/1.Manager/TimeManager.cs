@@ -5,32 +5,37 @@ using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
-    [SerializeField]
-   private Light intenSityValue;
+    
+    public Light intenSityValue;
     private int day, hour, min;
-    private float value,lightValue;
+    private float value;
     bool isDay, isRain;
     [SerializeField] private int timeScale, dayTime, nightTime, rainPercent;
     [SerializeField] private Text timeText;
-     void Start()
+    private void Start()
     {
-        intenSityValue.intensity = 0.4f;
-        lightValue = 0.4f;
+        intenSityValue.intensity = 1f;
         timeText.text = string.Format("Day : {0} Hour : {1} Min : {2}", day, hour, min);
-        StartCoroutine(TimeSystem());
+        StartCoroutine(Time());
     }
-    void Update()
+  void Update()
     {
        
-        Delight();
     }
-    IEnumerator TimeSystem()    
+    IEnumerator Time()
     {
         while (true)
         {
+            
             TurnDelight();
-            yield return new WaitForSeconds(1f);   
-            min += timeScale;              
+            yield return new WaitForSeconds(1f);
+            value += timeScale;
+            min += timeScale;
+          if(value>=1440)
+            {
+                value=0;
+            }
+               
             if (min >= 60)
             {
                 min -= 60;
@@ -63,22 +68,16 @@ public class TimeManager : MonoBehaviour
             timeText.text = string.Format("Day : {0} Hour : {1} Min : {2}", day, hour, min);
         }
     }
-   
     void TurnDelight()
     {
-        if(hour>=5&&hour<17)//오전5시~오후4시 밝아짐
+        if(value<720 && 0 <= value)
         {
-            lightValue += 1f / ((60f / timeScale) * 12);
-
+            intenSityValue.intensity -= 0.0208333333333333f;
         }
-       else if(hour<5||hour>=17)//오후5시~오전4시 어두워짐
+        else if(value>=720)
         {
-            lightValue -= 1f / ((60f / timeScale) * 12);
-        } 
+            intenSityValue.intensity += 0.0208333333333333f;
+        }
         
-    }
-    void Delight()
-    {
-        intenSityValue.intensity = Mathf.Lerp(intenSityValue.intensity, lightValue, Time.deltaTime);
     }
 }

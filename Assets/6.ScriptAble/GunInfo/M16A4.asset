@@ -24,4 +24,4 @@ MonoBehaviour:
   shootAudio: {fileID: 8300000, guid: cb7ec502d2c78c34b88532d6069b00dd, type: 3}
   reloadAudio: {fileID: 8300000, guid: 86fd858feeeb56e4b8308f5bad2ebd18, type: 3}
   useAudio: {fileID: 8300000, guid: 44849cec43ee3654daf7b31a18c2f867, type: 3}
-  gunSprite: {fileID: 21300000, guid: 7ae1d90c066776b4e96978a5799e6364, type: 3}
+  gunSprite: {fileID: 21300000, guid: 0b19405aba4bc774b88bb3f5e2cb0ccc, type: 3}

@@ -15,7 +15,7 @@ public class GameManager : MonoSingleton<GameManager>
     [SerializeField] private Transform player;
     [SerializeField] private GameObject pausePanel;
     [SerializeField] private PoolManager poolManager;
-    public User CurrentUser { get { return user;} }
+    public User CurrentUser { get { return user; } }
     void Awake()
     {
         SAVE_PATH = Application.dataPath + "/Save"; // persistentDataPath
