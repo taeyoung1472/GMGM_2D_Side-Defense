@@ -5,7 +5,7 @@ using UnityEngine;
 public class ZombiHealth : LivingEntity
 {
 
-    Rigidbody2D rigid;
+    /*Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
     protected override void Start()
     {
@@ -40,5 +40,5 @@ public class ZombiHealth : LivingEntity
     protected override void OnDie()
     {
         gameObject.SetActive(false);
-    }
+    }*/
 }

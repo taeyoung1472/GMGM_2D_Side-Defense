@@ -27,7 +27,4 @@ public abstract class EnemyAttack : MonoBehaviour
             }
         }
     }
-
-
 }
-

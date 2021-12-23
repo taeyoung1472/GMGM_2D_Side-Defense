@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ObjectBase : MonoBehaviour
+public class ObjectBase : MonoBehaviour, IDamageable
 {
     bool isBreak;
     private SpriteRenderer sprite;
@@ -37,5 +37,10 @@ public class ObjectBase : MonoBehaviour
     {
         sprite.color = Color.gray;
         collider.enabled = false;
+    }
+
+    public void OnDamage(float damage, Vector2 normal, float Power = 0, float minuseSpeed = 0)
+    {
+        throw new System.NotImplementedException();
     }
 }

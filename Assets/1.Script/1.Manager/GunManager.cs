@@ -15,6 +15,7 @@ public class GunManager : MonoBehaviour
     [SerializeField] private AudioSource shootAudio, reloadAudio, useAudio;
     [SerializeField] private CameraManager cameraManager;
     [SerializeField] private PoolManager poolManager;
+    [SerializeField] private SpriteRenderer gunSprite;
     [SerializeField] private float partRecoil = 1, partMagazin = 1;
     private void Start()
     {
@@ -29,6 +30,7 @@ public class GunManager : MonoBehaviour
         shootAudio.clip = currentGun.shootAudio;
         reloadAudio.clip = currentGun.reloadAudio;
         useAudio.clip = currentGun.useAudio;
+        gunSprite.sprite = currentGun.gunSprite;
     }
     private void Update()
     {
@@ -85,8 +87,21 @@ public class GunManager : MonoBehaviour
         {
             isShoot = true;
             firePos.localEulerAngles = new Vector3(0, 0, Random.Range(-1f,1f) * recoil);
-            Instantiate(currentGun.bullet, firePos.position, firePos.rotation);
             currentBullet--;
+            #region 풀링(총알,사운드)
+            if (poolManager.Instance(1).childCount > 0)
+            {
+                GameObject obj = poolManager.Get(1).gameObject;
+                obj.SetActive(true);
+                obj.transform.SetParent(poolManager.Holder);
+                obj.transform.position = firePos.position;
+                obj.transform.rotation = firePos.rotation;
+            }
+            else
+            {
+                GameObject obj = Instantiate(currentGun.bullet, firePos.position, firePos.rotation);
+                obj.transform.SetParent(poolManager.Holder);
+            }
             if(poolManager.Instance(0).childCount > 0)
             {
                 GameObject obj = poolManager.Get(0).gameObject;
@@ -99,8 +114,16 @@ public class GunManager : MonoBehaviour
                 GameObject obj = Instantiate(soundObj, transform.position, Quaternion.identity);
                 obj.GetComponent<SoundObject>().StartAudio(currentGun.shootAudio,shootAudio);
             }
+            #endregion
             ammoText.text = string.Format("{0} / {1}", currentBullet, Mathf.RoundToInt(currentGun.magazin * partMagazin));
-            cameraManager.Shake(currentGun.recoil * partRecoil * 0.1f, currentGun.shootDelay);
+            if(currentGun.fireMode == GunInfo.FireMode.semi)
+            {
+                cameraManager.Shake(currentGun.recoil * partRecoil * 0.1f, currentGun.shootDelay * 0.25f);
+            }
+            else
+            {
+                cameraManager.Shake(currentGun.recoil * partRecoil * 0.1f, currentGun.shootDelay);
+            }
             recoil += currentGun.recoil * partRecoil;
         }
     }

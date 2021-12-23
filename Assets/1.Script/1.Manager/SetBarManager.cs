@@ -4,11 +4,11 @@ using UnityEngine;
 
 public class SetBarManager : MonoSingleton<SetBarManager>
 {
-    public FatiqueBar fatiqueBar;
+    public SliderSystem fatiqueBar;
 
 
     public void SetFatiquerBar(float value)
     {
-        Instance.fatiqueBar.SetHP(value);
+        Instance.fatiqueBar.SetValue(value);
     }
 }

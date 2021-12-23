@@ -10,6 +10,7 @@ public class GunInfo : ScriptableObject
     public GameObject bullet;
     public FireMode fireMode;
     public AudioClip shootAudio, reloadAudio, useAudio;
+    public Sprite gunSprite;
     public enum FireMode
     {
         semi,
