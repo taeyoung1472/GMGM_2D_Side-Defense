@@ -45,11 +45,11 @@ public abstract class EnemyBase : MonoBehaviour, IDamageable
         {
             Damaged(collision.GetComponent<BulletMove>().GetDamage());
             collision.GetComponent<BulletMove>().Penetration();
-            if (currentHp <= 0)
+            if(currentHp <= 0)
             {
                 OnDie();
             }
-            StartCoroutine(hitAnimation(enemyInfo.hitAniCount, enemyInfo.shockTime, enemyInfo.hitColor));
+            StartCoroutine(hitAnimation(enemyInfo.hitAniCount,enemyInfo.shockTime, enemyInfo.hitColor));
         }
     }
     public void OnCollisionEnter2D(Collision2D collision)
@@ -98,7 +98,7 @@ public abstract class EnemyBase : MonoBehaviour, IDamageable
     public void OnDamage(float damage, Vector2 normal = default, float Power = 0, float minuseSpeed = 0)
     {
         currentHp -= damage;
-        if (currentHp <= 0)
+        if(currentHp <= 0)
         {
             OnDie();
         }

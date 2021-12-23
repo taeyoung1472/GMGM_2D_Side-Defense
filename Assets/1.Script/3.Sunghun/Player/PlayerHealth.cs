@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class PlayerHealth : LivingEntity
 {
-
-
-    SpriteRenderer spriteRenderer;
+    /*SpriteRenderer spriteRenderer;
     PlayerAnimation playerAnimation;
 
     public void Awake()
@@ -40,5 +38,5 @@ public class PlayerHealth : LivingEntity
     protected override void OnDie() //피가 0일떄 실행함
     {
         Debug.Log("플레이어 죽음");
-    }
+    }*/
 }

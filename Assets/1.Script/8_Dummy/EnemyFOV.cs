@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class EnemyFOV : MonoBehaviour
 {
-    public float viewRange = 10f; //시야거리
+    /*public float viewRange = 10f; //시야거리
     [Range(0, 360)]
     public float viewAngle = 40f; //시야각도
     public float attackRange = 1f; //공격거리
@@ -75,5 +75,5 @@ public class EnemyFOV : MonoBehaviour
             <= Mathf.Pow(attackRange, 2);
     }
 
-
+    */
 }
