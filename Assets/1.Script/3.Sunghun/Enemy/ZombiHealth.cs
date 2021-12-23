@@ -7,14 +7,20 @@ public class ZombiHealth : LivingEntity
 
     Rigidbody2D rigid;
     SpriteRenderer spriteRenderer;
+
+    public EnemyInfo EnemyInfo;
+
     protected override void Start()
     {
         base.Start();
+        currentHP = EnemyInfo.hp;
     }
 
 
     protected void Awake()
     {
+
+        print(currentHP);
         rigid = GetComponent<Rigidbody2D>();
         spriteRenderer = GetComponent<SpriteRenderer>();
     }
