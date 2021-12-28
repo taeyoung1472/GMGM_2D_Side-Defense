@@ -3349,6 +3349,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a3c2801700c2fb54485ae4d489014a01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  recoil: 0
+  partPanel: {fileID: 0}
+  soundObj: {fileID: 0}
+  partSystem: {fileID: 0}
   hand: {fileID: 823294328}
   firePos: {fileID: 795778763}
   currentGun: {fileID: 11400000, guid: 7e2c26dca729a1b4a87d366b528c89b1, type: 2}
@@ -3357,6 +3361,11 @@ MonoBehaviour:
   shootAudio: {fileID: 515754080}
   reloadAudio: {fileID: 515754079}
   useAudio: {fileID: 515754078}
+  cameraManager: {fileID: 0}
+  poolManager: {fileID: 0}
+  gunSprite: {fileID: 0}
+  partRecoil: 1
+  partMagazin: 1
 --- !u!82 &515754078
 AudioSource:
   m_ObjectHideFlags: 0
@@ -4929,6 +4938,36 @@ Transform:
   m_Children: []
   m_Father: {fileID: 515754075}
   m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &797976934
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 797976935}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &797976935
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 797976934}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 16.74538, y: 8.460236, z: -1.8984547}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 29
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &807615708
 GameObject:
@@ -27295,11 +27334,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da9c609bd4ba19e47ab08baec1b35a93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gunManager: {fileID: 0}
   moveDir: {x: 0, y: 0}
   hand: {fileID: 823294328}
   speed: 5
-  hp: 0
+  maxHp: 0
   jumpForce: 10
+  hpSlider: {fileID: 0}
   Maxfatique: 10
 --- !u!212 &1542273539
 SpriteRenderer:
