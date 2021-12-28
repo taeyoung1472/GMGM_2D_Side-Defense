@@ -140,7 +140,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a785e15c9c929a448b8d2d018aac992, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  poolingTime: 3
+  poolingTime: 1
   poolIndex: 0
   poolManager: {fileID: 0}
   audio: {fileID: 39242861267283946}

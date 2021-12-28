@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class EnemyAI : MonoBehaviour
 {
-
-
+    /*
     public enum State //적상태
     {
         Idle,
@@ -49,7 +48,7 @@ public class EnemyAI : MonoBehaviour
             if (GameManager.Player != null)
             {
                 CheckState();
-                Debug.Log("체크 액션");
+                //Debug.Log("체크 액션");
                 Action();
             }
             yield return ws;
@@ -64,83 +63,83 @@ public class EnemyAI : MonoBehaviour
             return;
         }
 
-        bool isTrace = fov.IsTracePlayer();
+        /*bool isTrace = fov.IsTracePlayer();
         bool isView = fov.IsViewPlayer();
-        bool isAttack = fov.IsAttackPossible();
+        bool isAttack = fov.IsAttackPossible();*/
 
-        if (isAttack && isView && isTrace)
-        {
-            currentState = State.Attack;
-        }
-        else if (isTrace && isView)
-        {
-            currentState = State.Chase;
-        }
-        else
-        {
-            currentState = State.Patrol;
-        }
-
-    }
-    protected virtual void Action()
+    /*if (isAttack && isView && isTrace)
     {
-        switch (currentState)
-        {
-            case State.Idle:
-                break;
-            case State.Patrol:
-                if (attack != null)
-                    attack.isAttack = false;
-                move.SetMove();
-              
-                break;
-            case State.Attack:
-                move.Stop();
-                if (attack != null)
-                    attack.isAttack = true;
-                break;
-            case State.Hit:
-                move.Stop();
-                if (attack != null)
-                    attack.isAttack = false;
-                break;
-            case State.Dead:
-                break;
-        }
+        currentState = State.Attack;
     }
-
-    public void SetHit()
+    else if (isTrace && isView)
     {
-        currentState = State.Hit;
-        move.Stop();
-        StartCoroutine(Recover(stunTime));
+        currentState = State.Chase;
     }
-
-    public void SetStun(float time = 0) //Ai에다가 대쉬 상태이면 바로 에너미 무브하면 되ㅡㄴㄴ구나.
+    else
     {
-        currentState = State.Stun;
-        if (time == 0)
-            time = stunTime;
-
-        //if (_status != null)
-        //    _status.PlayStun(time);
-
-        //여기에 스턴 애니메이션 사용
-        StartCoroutine(Recover(time));
-    }
-
-    private IEnumerator Recover(float time)
-    {
-        yield return new WaitForSeconds(time);
-
         currentState = State.Patrol;
     }
 
-    public void SetDead()
+}
+protected virtual void Action()
+{
+    switch (currentState)
     {
-        currentState = State.Dead;
-        if (attack != null)
-            attack.isAttack = false;
-        move.Stop();
+        case State.Idle:
+            break;
+        case State.Patrol:
+            if (attack != null)
+                attack.isAttack = false;
+            move.SetMove();
+
+            break;
+        case State.Attack:
+            move.Stop();
+            if (attack != null)
+                attack.isAttack = true;
+            break;
+        case State.Hit:
+            move.Stop();
+            if (attack != null)
+                attack.isAttack = false;
+            break;
+        case State.Dead:
+            break;
     }
+}
+
+public void SetHit()
+{
+    currentState = State.Hit;
+    move.Stop();
+    StartCoroutine(Recover(stunTime));
+}
+
+public void SetStun(float time = 0) //Ai에다가 대쉬 상태이면 바로 에너미 무브하면 되ㅡㄴㄴ구나.
+{
+    currentState = State.Stun;
+    if (time == 0)
+        time = stunTime;
+
+    //if (_status != null)
+    //    _status.PlayStun(time);
+
+    //여기에 스턴 애니메이션 사용
+    StartCoroutine(Recover(time));
+}
+
+private IEnumerator Recover(float time)
+{
+    yield return new WaitForSeconds(time);
+
+    currentState = State.Patrol;
+}
+
+public void SetDead()
+{
+    currentState = State.Dead;
+    if (attack != null)
+        attack.isAttack = false;
+    move.Stop();
+}*/
 }
