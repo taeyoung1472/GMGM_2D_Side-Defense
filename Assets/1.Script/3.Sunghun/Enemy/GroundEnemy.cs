@@ -5,10 +5,12 @@ using UnityEngine;
 public class GroundEnemy : EnemyMove
 {
 
+    public EnemyInfo zombieInfo;
     Vector2 moveDir;
     protected override void Awake()
     {
         base.Awake();
+        currentSpeed = zombieInfo.speed;
     }
     private Vector3 spriteSize;
 
@@ -32,4 +34,12 @@ public class GroundEnemy : EnemyMove
 
         
     }
+
+    public override void SetMove()
+    {
+        isChase = false;
+        moveSet = true;
+        currentSpeed = zombieInfo.speed;
+    }
+
 }
