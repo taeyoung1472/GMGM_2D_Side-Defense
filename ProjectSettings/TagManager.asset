@@ -20,14 +20,14 @@ TagManager:
   - HideInMinimap
   - ShowInMinimap
   - Enemy
-  - Object
-  - Player
   - Bullet
+  - Player
+  - 
   - 
   - Grenade
   - Ground
   - 
-  - 
+  - Object
   - 
   - 
   - 
@@ -46,6 +46,9 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: New Layer
+  - name: Bullet
     uniqueID: 912176787
+    locked: 0
+  - name: Object
+    uniqueID: 2679985771
     locked: 0

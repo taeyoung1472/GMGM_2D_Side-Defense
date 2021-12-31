@@ -5,8 +5,7 @@ using UnityEngine.UI;
 
 public class TimeManager : MonoBehaviour
 {
-    [SerializeField]
-   private Light intenSityValue;
+   
     private int day, hour, min;
     private float value,lightValue;
     bool isDay, isRain;
@@ -14,7 +13,7 @@ public class TimeManager : MonoBehaviour
     [SerializeField] private Text timeText;
      void Start()
     {
-        intenSityValue.intensity = 0.4f;
+        //intenSityValue.intensity = 0.4f;
         lightValue = 0.4f;
         timeText.text = string.Format("Day : {0} Hour : {1} Min : {2}", day, hour, min);
         StartCoroutine(TimeSystem());
@@ -79,6 +78,6 @@ public class TimeManager : MonoBehaviour
     }
     void Delight()
     {
-        intenSityValue.intensity = Mathf.Lerp(intenSityValue.intensity, lightValue, Time.deltaTime);
+        //intenSityValue.intensity = Mathf.Lerp(intenSityValue.intensity, lightValue, Time.deltaTime);
     }
 }

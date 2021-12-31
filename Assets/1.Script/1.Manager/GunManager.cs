@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.UI;
 public class GunManager : MonoBehaviour
 {
-    bool isCanShoot = true, isReload, isShoot;
+    
+        bool isCanShoot = true, isReload, isShoot;
     int currentBullet;
     public float recoil;
     [SerializeField] private GameObject partPanel, soundObj;
@@ -17,10 +18,24 @@ public class GunManager : MonoBehaviour
     [SerializeField] private PoolManager poolManager;
     [SerializeField] private SpriteRenderer gunSprite;
     [SerializeField] private float partRecoil = 1, partMagazin = 1;
-    private void Start()
+    GameObject Flash;
+ void Start()
     {
+        Flash = transform.Find("Flash").gameObject;
+        Flash.SetActive(false);
         StartCoroutine(CheckFire());
         SetUp();
+    }
+    void MuzzleFlash()
+    {
+        if(isShoot)
+        {
+            Flash.SetActive(true);
+        }
+        else 
+        {
+            Flash.SetActive(false);
+        }
     }
     void SetUp()
     {
@@ -32,8 +47,9 @@ public class GunManager : MonoBehaviour
         useAudio.clip = currentGun.useAudio;
         gunSprite.sprite = currentGun.gunSprite;
     }
-    private void Update()
+      private void Update()
     {
+        MuzzleFlash();
         CheckInput();
         if (recoil > 0 && !isShoot)
         {
@@ -81,26 +97,28 @@ public class GunManager : MonoBehaviour
         isCanShoot = true;
         isReload = false;
     }
+
     void Fire()
     {
         if (currentBullet > 0)
         {
-            isShoot = true;
-            firePos.localEulerAngles = new Vector3(0, 0, Random.Range(-1f,1f) * recoil);
-            currentBullet--;
-            #region 풀링(총알,사운드)
-            if (poolManager.Instance(1).childCount > 0)
-            {
-                GameObject obj = poolManager.Get(1).gameObject;
-                obj.SetActive(true);
-                obj.transform.SetParent(poolManager.Holder);
-                obj.transform.position = firePos.position;
-                obj.transform.rotation = firePos.rotation;
-            }
-            else
+                isShoot = true;
+                firePos.localEulerAngles = new Vector3(0, 0, Random.Range(-1f,1f) * recoil);
+                currentBullet--;
+                #region 풀링(총알,사운드)
+                if (poolManager.Instance(1).childCount > 0)
+                {
+                    GameObject obj = poolManager.Get(1).gameObject;
+                    obj.SetActive(true);
+                    obj.transform.SetParent(poolManager.Holder);
+                    obj.transform.position = firePos.position;
+                    obj.transform.rotation = firePos.rotation;
+                }
+                else
             {
                 GameObject obj = Instantiate(currentGun.bullet, firePos.position, firePos.rotation);
                 obj.transform.SetParent(poolManager.Holder);
+
             }
             if(poolManager.Instance(0).childCount > 0)
             {
